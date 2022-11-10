@@ -14,7 +14,7 @@ userRouter.get("/:id", async (req, res) => {
 		// grabbing number of users from model
 		const usersCount = await User.count();
 
-		// making sure id passed in is greater than number of users and not less than 1
+		// making sure id passed in is not greater than number of users and not less than 1
 		if (req.params.id > usersCount || req.params.id < 1) {
 			throw new Error("That user couldn't be found.");
 		} else {
