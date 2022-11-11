@@ -29,7 +29,7 @@ userRouter.get("/:id", async (req, res) => {
 
 // GETTING all shows watched by user:
 userRouter.get("/:id/:shows", async (req, res) => {
-	const user = await User.findByPk(1);
+	const user = await User.findByPk(req.params.id);
 	// looping over return value of getShows() and running .toJSON() on each value
 	const shows = (await user.getShows()).map((s) => s.toJSON());
 	res.send(shows);
